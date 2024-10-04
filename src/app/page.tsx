@@ -1,3 +1,5 @@
+import { LikesAndMatches } from "./components/LikesAndMatches/LikesAndMatches";
+import { Messages } from "./components/Messages/Messages";
 import { ProfileMenu } from "./components/ProfileMenu/ProfileMenu";
 
 export default function Home() {
@@ -10,9 +12,15 @@ export default function Home() {
         <div className="row-span-2">
           <ProfileMenu />
         </div>
-        <div className="row-span-2">Matcher</div>
-        <div>Messages</div>
-        <div className="col-start-3">Likes & Matches</div>
+        <div className="row-span-2 self-center justify-self-center">
+          Matcher
+        </div>
+        <div className="mr-10">
+          <Messages />
+        </div>
+        <div className="col-start-3 mr-10">
+          <LikesAndMatches />
+        </div>
       </main>
     </div>
   );

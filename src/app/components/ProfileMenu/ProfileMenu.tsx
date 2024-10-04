@@ -4,7 +4,7 @@ import MartinElMastin from "../../../assets/martinelmastin.webp";
 
 export const ProfileMenu = () => {
   return (
-    <div className="flex flex-col justify-evenly rounded-sm border-slate-400 p-5 h-[90%]">
+    <div className="flex flex-col justify-evenly rounded-sm border-2 p-5 h-[90%]">
       <div>
         <Image
           src={MartinElMastin}
@@ -16,7 +16,7 @@ export const ProfileMenu = () => {
         <h1 className="mt-5 font-semibold">Martín el Mastín</h1>
         <h2 className="text-zinc-300">Rabasa</h2>
         <div className="flex gap-1 mt-5">
-          <div className="flex flex-col gap-0.5">
+          <div className="flex flex-col gap-0.5 ">
             <span className="text-purple-500 font-semibold">12</span>
             <span className="text-zinc-300">Friends</span>
           </div>
@@ -32,14 +32,24 @@ export const ProfileMenu = () => {
       </div>
       <nav>
         <ul>
-          <li className="mt-5 text-zinc-400 hover:text-zinc-900">Dating</li>
-          <li className="mt-5 text-zinc-400 hover:text-zinc-900">Users</li>
-          <li className="mt-5 text-zinc-400 hover:text-zinc-900">Messages</li>
-          <li className="mt-5 text-zinc-400 hover:text-zinc-900">Activity</li>
-          <li className="mt-5 text-zinc-400 hover:text-zinc-900">Profile</li>
+          <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+            Dating
+          </li>
+          <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+            Users
+          </li>
+          <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+            Messages
+          </li>
+          <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+            Activity
+          </li>
+          <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+            Profile
+          </li>
         </ul>
       </nav>
-      <div>Settings</div>
+      <div className="text-zinc-400">Settings</div>
     </div>
   );
 };
