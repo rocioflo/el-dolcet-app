@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import MartinElMastin from "/Users/rocioflo/Desktop/Web Developer/el-dolcet/src/assets/martinelmastin.webp";
+import MartinElMastin from "../../../assets/martinelmastin.webp";
 
 export const ProfileMenu = () => {
   return (
