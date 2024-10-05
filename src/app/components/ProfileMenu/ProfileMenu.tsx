@@ -1,10 +1,16 @@
 import Image from "next/image";
 
 import MartinElMastin from "../../../assets/martinelmastin.webp";
+import Heart from "../../../assets/heart_icon.svg";
+import Users from "../../../assets/users_icon.svg";
+import Message from "../../../assets/message_icon.svg";
+import TwoHearts from "../../../assets/two_hearts_icon.svg";
+import Profile from "../../../assets/profile_icon.svg";
+import Settings from "../../../assets/settings_icon.svg";
 
 export const ProfileMenu = () => {
   return (
-    <div className="flex flex-col justify-evenly rounded-sm border-2 p-5 h-[90%]">
+    <div className="flex flex-col justify-evenly rounded-md border-2 p-5 h-full">
       <div>
         <Image
           src={MartinElMastin}
@@ -33,23 +39,43 @@ export const ProfileMenu = () => {
       <nav>
         <ul>
           <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
-            Dating
+            <a className="flex gap-1">
+              <Image src={Heart} alt="Heart icon" height={17} />
+              Dating
+            </a>
           </li>
           <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
-            Users
+            <a className="flex gap-1">
+              <Image src={Users} alt="Users icon" height={17} />
+              Users
+            </a>
           </li>
           <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
-            Messages
+            <a className="flex gap-1">
+              <Image src={Message} alt="Messages icon" height={17} />
+              Messages
+            </a>
           </li>
           <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
-            Activity
+            <a className="flex gap-1">
+              <Image src={TwoHearts} alt="Activity icon" height={17} />
+              Activity
+            </a>
           </li>
           <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
-            Profile
+            <a className="flex gap-1">
+              <Image src={Profile} alt="Profile icon" height={17} />
+              Profile
+            </a>
           </li>
         </ul>
       </nav>
-      <div className="text-zinc-400">Settings</div>
+      <div className="text-zinc-400 border-t-2">
+        <a className="flex gap-1 mt-2 hover:bg-zinc-100 rounded-md">
+          <Image src={Settings} alt="Settings icon" height={17} />
+          Settings
+        </a>
+      </div>
     </div>
   );
 };

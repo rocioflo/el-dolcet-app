@@ -6,7 +6,7 @@ export const Messages = () => {
     <div className="border-2 p-4 rounded-lg">
       <div className="flex justify-between pb-4">
         <h1 className="font-semibold">Messages</h1>
-        <span className=" text-purple-500">See all</span>
+        <a className="text-purple-500 hover:text-purple-800">See all</a>
       </div>
       <div className="flex justify-center mb-4 bg-purple-100 rounded-md">
         <button className="py-1 px-5 focus:bg-purple-500 focus:text-white text-purple-500 rounded-md w-36">
