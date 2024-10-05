@@ -7,6 +7,7 @@ import Message from "../../../assets/message_icon.svg";
 import TwoHearts from "../../../assets/two_hearts_icon.svg";
 import Profile from "../../../assets/profile_icon.svg";
 import Settings from "../../../assets/settings_icon.svg";
+import Link from "next/link";
 
 export const ProfileMenu = () => {
   return (
@@ -21,16 +22,16 @@ export const ProfileMenu = () => {
         />
         <h1 className="mt-5 font-semibold">Martín el Mastín</h1>
         <h2 className="text-zinc-300">Rabasa</h2>
-        <div className="flex gap-1 mt-5">
-          <div className="flex flex-col gap-0.5 ">
+        <div className="flex gap-3 mt-5">
+          <div className="flex flex-col">
             <span className="text-purple-500 font-semibold">12</span>
             <span className="text-zinc-300">Friends</span>
           </div>
-          <div className="flex flex-col gap-0.5">
+          <div className="flex flex-col">
             <span className="text-purple-500 font-semibold">99</span>
             <span className="text-zinc-300">Likes</span>
           </div>
-          <div className="flex flex-col gap-0.5">
+          <div className="flex flex-col">
             <span className="text-purple-500 font-semibold">6</span>
             <span className="text-zinc-300">Matches</span>
           </div>
@@ -63,10 +64,10 @@ export const ProfileMenu = () => {
             </a>
           </li>
           <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
-            <a className="flex gap-1">
+            <Link href="/profile" className="flex gap-1">
               <Image src={Profile} alt="Profile icon" height={17} />
               Profile
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
