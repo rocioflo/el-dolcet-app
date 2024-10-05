@@ -1,18 +1,15 @@
+"use client";
+
 import { LikesAndMatches } from "./components/LikesAndMatches/LikesAndMatches";
 import { Matcher } from "./components/Matcher/Matcher";
 import { Messages } from "./components/Messages/Messages";
 import { ProfileMenu } from "./components/ProfileMenu/ProfileMenu";
+import { getUsersTopArtist } from "./server-actions/getUsersData";
+
+import { authenticate } from "./server-actions/authenticate";
 
 export default function Home() {
-  // This is temporary, because a client component does not have access to env, but the test worked
-
-  fetch("https://accounts.spotify.com/api/token", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/x-www-form-urlencoded",
-    },
-    body: `grant_type=client_credentials&client_id=${process.env.SPOTIFY_CLIENT_ID}&client_secret=${process.env.SPOTIFY_CLIENT_SECRET}`,
-  }).then((data) => console.log(data));
+  getUsersTopArtist();
 
   return (
     <div className="">
@@ -32,6 +29,7 @@ export default function Home() {
         <div className="col-start-3 mr-10">
           <LikesAndMatches />
         </div>
+        <button onClick={() => authenticate()}>Get Auth</button>
       </main>
     </div>
   );
