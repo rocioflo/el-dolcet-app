@@ -13,7 +13,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-screen">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <header className="h-12">
+          <h1>El dolcet</h1>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

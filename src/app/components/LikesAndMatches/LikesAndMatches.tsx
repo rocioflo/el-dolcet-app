@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Rabanito from "../../../assets/chalupin.jpg";
 import Gabardina from "../../../assets/gabardina.jpg";
+import Heart from "../../../assets/heart_icon.svg";
 
 export const LikesAndMatches = () => {
   return (
@@ -31,7 +32,7 @@ export const LikesAndMatches = () => {
           <p className="col-start-2 row-start-3 text-zinc-400">
             He was listening to...
           </p>
-          <span className="text-zinc-400">Ding!</span>
+          <Image src={Heart} alt="Heart icon" height={17} />
         </div>
         <div className="grid grid-cols-[1fr_3fr_1fr] grid-rows-3 h-16 border-2 rounded-md">
           <Image
@@ -46,7 +47,7 @@ export const LikesAndMatches = () => {
           <p className="col-start-2 row-start-3 text-zinc-400">
             He was listening to...
           </p>
-          <span className="text-zinc-400">Ding!</span>
+          <Image src={Heart} alt="Heart icon" height={17} />
         </div>
       </div>
     </div>
