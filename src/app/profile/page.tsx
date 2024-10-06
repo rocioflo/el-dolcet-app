@@ -9,11 +9,47 @@ import Mastin2 from "../../assets/mastin2.jpg";
 import Mastin3 from "../../assets/mastin3.jpg";
 import Mastin4 from "../../assets/mastin4.webp";
 import Mastin5 from "../../assets/mastin5.jpg";
+import Heart from "../../assets/heart_icon.svg";
+import Users from "../../assets/users_icon.svg";
+import Message from "../../assets/message_icon.svg";
+import TwoHearts from "../../assets/two_hearts_icon.svg";
+import { useGetUserData } from "../hooks/useGetUserData";
 
 export default function ProfilePage() {
+  const { userName, favoriteGenre, topArtists, topTracks } = useGetUserData();
+
   return (
     <main className="grid grid-cols-[1fr_4fr_2fr] grid-rows-3 gap-6">
-      <div>Profile Nav Bar</div>
+      <div>
+        <nav className="p-5">
+          <ul>
+            <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+              <a className="flex gap-1">
+                <Image src={Heart} alt="Heart icon" height={17} />
+                Dating
+              </a>
+            </li>
+            <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+              <a className="flex gap-1">
+                <Image src={Users} alt="Users icon" height={17} />
+                Users
+              </a>
+            </li>
+            <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+              <a className="flex gap-1">
+                <Image src={Message} alt="Messages icon" height={17} />
+                Messages
+              </a>
+            </li>
+            <li className="mt-1 text-zinc-400 hover:text-zinc-900 hover:bg-purple-100 rounded-md py-2">
+              <a className="flex gap-1">
+                <Image src={TwoHearts} alt="Activity icon" height={17} />
+                Activity
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
       <div className="rounded-xl border-2 grid grid-cols-[1fr_2fr] grid-rows-3 gap-3">
         <Image
@@ -22,8 +58,8 @@ export default function ProfilePage() {
           className="row-span-3"
         />
         <div>
-          <h1 className="font-bold text-lg">Martín el Mastín</h1>
-          <span>Rabasa</span>
+          <h1 className="font-bold text-lg">{userName}</h1>
+          <span>{favoriteGenre}</span>
         </div>
         <p>El otro día vi una ardilla.</p>
         <div>
@@ -77,20 +113,24 @@ export default function ProfilePage() {
       </div>
       <div className="col-start-2 row-start-3 border-2 rounded-lg p-5 mb-6">
         <h4 className="font-bold mb-2">Favorites</h4>
-        <div className="grid grid-cols-2 gap-2 h-full">
+        <div className="grid grid-cols-2 gap-2">
           <ol>
-            <li>Taylor Swift</li>
-            <li>Dodie</li>
-            <li>Chappell Roan</li>
-            <li>Sammy Rae & The Friends</li>
-            <li>Molotov Jukebox</li>
+            {topArtists.map((artist) => {
+              return (
+                <li className="mb-2" key={artist.replaceAll(" ", "")}>
+                  {artist}
+                </li>
+              );
+            })}
           </ol>
           <ol>
-            <li>Guilty as sin</li>
-            <li>Guiltless</li>
-            <li>Red Wine Supernova</li>
-            <li>Coming Home Song</li>
-            <li>Pinapple Girl</li>
+            {topTracks.map((artist) => {
+              return (
+                <li className="mb-2" key={artist.replaceAll(" ", "")}>
+                  {artist}
+                </li>
+              );
+            })}
           </ol>
         </div>
       </div>

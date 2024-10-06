@@ -21,7 +21,7 @@ export const ProfileMenu = () => {
           width={200}
         />
         <h1 className="mt-5 font-semibold">Martín el Mastín</h1>
-        <h2 className="text-zinc-300">Rabasa</h2>
+        <h2 className="text-zinc-300">Rock and roll</h2>
         <div className="flex gap-3 mt-5">
           <div className="flex flex-col">
             <span className="text-purple-500 font-semibold">12</span>

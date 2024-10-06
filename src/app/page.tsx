@@ -6,7 +6,7 @@ import { ProfileMenu } from "./components/ProfileMenu/ProfileMenu";
 export default function Home() {
   return (
     <main className="grid grid-rows-2 grid-cols-[1fr_4fr_2fr] gap-4 h-full">
-      <div className="row-span-2 ">
+      <div className="row-span-2">
         <ProfileMenu />
       </div>
       <div className="row-span-2 h-full">
