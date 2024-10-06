@@ -4,13 +4,10 @@ import { LikesAndMatches } from "./components/LikesAndMatches/LikesAndMatches";
 import { Matcher } from "./components/Matcher/Matcher";
 import { Messages } from "./components/Messages/Messages";
 import { ProfileMenu } from "./components/ProfileMenu/ProfileMenu";
-import { getUsersTopArtist } from "./server-actions/getUsersData";
 
 import { authenticate } from "./server-actions/authenticate";
 
 export default function Home() {
-  getUsersTopArtist();
-
   return (
     <div className="">
       <header className="h-12">

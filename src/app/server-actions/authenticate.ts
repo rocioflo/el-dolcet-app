@@ -18,7 +18,7 @@ export async function authenticate() {
       "&redirect_uri=" + encodeURIComponent(process.env.REDIRECT_URI ?? "");
 
     const data = await fetch(url);
-    redirectionURL = await data.url;
+    redirectionURL = data.url;
   } catch (error) {
     console.error(error, "error");
   }

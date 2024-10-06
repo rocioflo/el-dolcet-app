@@ -1,5 +1,7 @@
 "use client";
 
+// look for nextjs cookies, maybe instead of session you can use cookies
+
 export async function getUsersTopArtist() {
   if (typeof sessionStorage !== "undefined") {
     const token = sessionStorage.getItem("token");

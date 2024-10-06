@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const trimToken = (token: string) => {
   return token.slice(token.indexOf("=") + 1, token.indexOf("&"));
@@ -8,6 +8,9 @@ const trimToken = (token: string) => {
 
 export default function CallbackPage() {
   const router = useRouter();
+
+  // Change the # for ?
+  console.log(useSearchParams().get("access_token"));
 
   if (typeof window !== "undefined") {
     const accessToken = window.location.hash;
