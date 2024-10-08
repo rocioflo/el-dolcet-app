@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "El Dolcet",
@@ -13,7 +14,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-screen">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <header className="h-12">
+          <h1>
+            <Link href={"/"}>El dolcet</Link>
+          </h1>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
