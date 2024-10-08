@@ -9,9 +9,6 @@ const trimToken = (token: string) => {
 export default function CallbackPage() {
   const router = useRouter();
 
-  // Change the # for ?
-  // console.log(useSearchParams().get("access_token"));
-
   if (typeof window !== "undefined") {
     const accessToken = window.location.hash;
 
