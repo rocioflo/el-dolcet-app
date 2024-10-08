@@ -1,7 +1,11 @@
+"use client";
+
 import { LikesAndMatches } from "./components/LikesAndMatches/LikesAndMatches";
 import { Matcher } from "./components/Matcher/Matcher";
 import { Messages } from "./components/Messages/Messages";
 import { ProfileMenu } from "./components/ProfileMenu/ProfileMenu";
+
+import { authenticate } from "./server-actions/authenticate";
 
 export default function Home() {
   return (
@@ -18,6 +22,9 @@ export default function Home() {
       <div className="col-start-3 mr-10">
         <LikesAndMatches />
       </div>
+      <button onClick={() => authenticate()}>Get Auth</button>
     </main>
   );
 }
+
+// Features: your coolest playlist, add song to your match queue?
