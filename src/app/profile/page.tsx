@@ -14,9 +14,21 @@ import Users from "../../assets/users_icon.svg";
 import Message from "../../assets/message_icon.svg";
 import TwoHearts from "../../assets/two_hearts_icon.svg";
 import { useGetUserData } from "../hooks/useGetUserData";
+import { getUsersTopArtists } from "../application/repositories/getUsersData";
+import { UserTopArtistsList } from "../application/domain/userData";
+import { useState } from "react";
 
 export default function ProfilePage() {
-  const { userName, favoriteGenre, topArtists, topTracks } = useGetUserData();
+  const { userName, favoriteGenre, topTracks } = useGetUserData();
+  const [topArtists, setTopArtists] = useState<UserTopArtistsList>([
+    { artistName: "" },
+  ]);
+
+  const onClickArtists = async () => {
+    const { topArtists: topArtistsList } = await getUsersTopArtists();
+
+    setTopArtists(topArtistsList);
+  };
 
   return (
     <main className="grid grid-cols-[1fr_4fr_2fr] grid-rows-3 gap-6">
@@ -117,11 +129,19 @@ export default function ProfilePage() {
           <ol>
             {topArtists.map((artist) => {
               return (
-                <li className="mb-2" key={artist.replaceAll(" ", "")}>
-                  {artist}
+                <li
+                  className="mb-2"
+                  key={artist.artistName.replaceAll(" ", "")}
+                >
+                  {artist.artistName}
                 </li>
               );
             })}
+            <li>
+              <button className="bg-red-200" onClick={onClickArtists}>
+                Reveal favs
+              </button>
+            </li>
           </ol>
           <ol>
             {topTracks.map((artist) => {

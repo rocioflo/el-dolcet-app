@@ -1,21 +1,24 @@
-"use client";
+import { decodeGetUsersTopArtistOK } from "./decodes";
+import { UsersTopArtistsDTO } from "./dtos";
 
-// Using session instead of cookies so that it is safer to use
+// TODO: Handle errors, don't be lazy
 
-export async function getUsersTopArtist() {
-  if (typeof sessionStorage !== "undefined") {
-    const token = sessionStorage.getItem("token");
+// TODO: TYPE
 
-    const response = await fetch("https://api.spotify.com/v1/me/top/artists", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+export async function getUsersTopArtists() {
+  const token = sessionStorage.getItem("token");
 
-    const data = await response.json();
+  const response = await fetch("https://api.spotify.com/v1/me/top/artists", {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
-    return data;
-  }
+  const data: UsersTopArtistsDTO = await response.json();
+
+  const topArtists = decodeGetUsersTopArtistOK(data);
+
+  return { topArtists };
 }
 
 export async function getUsersTopTracks() {
