@@ -21,9 +21,7 @@ export async function getUsersTopArtists() {
 
   const topArtists = decodeGetUsersTopArtistOK(data);
 
-  sessionStorage.setItem("topArtists", topArtists.toString());
-
-  return topArtists;
+  return { topArtists };
 }
 
 export async function getUsersTopTracks() {

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Rabanito from "/chalupin.jpg";
-import Gabardina from "/gabardina.jpg";
-import Heart from "/heart_icon.svg";
+import Rabanito from "../../../public/chalupin.jpg";
+import Gabardina from "../../../public/gabardina.jpg";
+import Heart from "../../../public/heart_icon.svg";
 
 export const LikesAndMatches = () => {
   return (

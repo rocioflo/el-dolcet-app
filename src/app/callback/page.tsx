@@ -17,7 +17,7 @@ export default function CallbackPage() {
   }
 
   useEffect(() => {
-    router.push("/");
+    router.push("/home");
   });
 
   return <h1>Redirecting</h1>;
