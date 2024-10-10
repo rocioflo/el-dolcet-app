@@ -1,16 +1,29 @@
-import { UserTopArtistsList } from "../domain/userData";
-import { UsersTopArtistsDTO } from "./dtos";
+import { UserTopArtistsList, UserTopTracksList } from "../domain/userData";
+import { ArtistObject, SpotifyUserInformationDTO, TrackObject } from "./dtos";
 
 export const decodeGetUsersTopArtistOK = (
-  usersTopArtistsDTO: UsersTopArtistsDTO
+  usersTopArtistsDTO: SpotifyUserInformationDTO<ArtistObject>
 ): UserTopArtistsList => {
-  const usersTopFiveArtists = usersTopArtistsDTO.items
-    .slice(0, 5)
-    .map((item) => {
-      return {
-        artistName: item.name,
-      };
-    });
+  const usersTopArtists = usersTopArtistsDTO.items.map((item) => {
+    return {
+      artistName: item.name,
+      artistPicture: item.images[0].url,
+    };
+  });
 
-  return usersTopFiveArtists;
+  return usersTopArtists;
+};
+
+export const decodeGetUsersTopTracksOK = (
+  usersTopTracksDTO: SpotifyUserInformationDTO<TrackObject>
+): UserTopTracksList => {
+  const usersTopTracks = usersTopTracksDTO.items.map((item) => {
+    return {
+      artistName: item.artists[0].name,
+      songName: item.name,
+      artistPicture: item.album.images[0].url,
+    };
+  });
+
+  return usersTopTracks;
 };
