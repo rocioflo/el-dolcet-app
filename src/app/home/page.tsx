@@ -1,7 +1,7 @@
-import { LikesAndMatches } from "../components/LikesAndMatches/LikesAndMatches";
-import { Matcher } from "../components/Matcher/Matcher";
-import { Messages } from "../components/Messages/Messages";
-import { ProfileMenu } from "../components/ProfileMenu/ProfileMenu";
+import { LikesAndMatches } from "./components/LikesAndMatches/LikesAndMatches";
+import { Matcher } from "./components/Matcher/Matcher";
+import { Messages } from "./components/Messages/Messages";
+import { ProfileMenu } from "./components/ProfileMenu/ProfileMenu";
 
 export default function UserHome() {
   return (

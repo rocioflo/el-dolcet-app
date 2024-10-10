@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Benita from "../../../public/caruso.jpg";
+import Benita from "@/public/caruso.jpg";
 
 export const Matcher = () => {
   return (

@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-import MartinElMastin from "../../../public/martinelmastin.webp";
-import Heart from "../../../public/heart_icon.svg";
-import Users from "../../../public/users_icon.svg";
-import Message from "../../../public/message_icon.svg";
-import TwoHearts from "../../../public/two_hearts_icon.svg";
-import Profile from "../../../public/profile_icon.svg";
-import Settings from "../../../public/settings_icon.svg";
+import MartinElMastin from "@/public/martinelmastin.webp";
+import Heart from "@/public/heart_icon.svg";
+import Users from "@/public/users_icon.svg";
+import Message from "@/public/message_icon.svg";
+import TwoHearts from "@/public/two_hearts_icon.svg";
+import Profile from "@/public/profile_icon.svg";
+import Settings from "@/public/settings_icon.svg";
 import Link from "next/link";
 
 export const ProfileMenu = () => {

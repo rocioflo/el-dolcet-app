@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Villeneuve from "../../../public/villeneuve.webp";
+import Villeneuve from "@/public/villeneuve.webp";
 
 export const Messages = () => {
   return (
