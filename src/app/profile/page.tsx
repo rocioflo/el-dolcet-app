@@ -3,42 +3,29 @@
 import Image from "next/image";
 import { LikesAndMatches } from "../components/LikesAndMatches/LikesAndMatches";
 import { Messages } from "../components/Messages/Messages";
-import MartinElMastin from "../../assets/martinelmastin.webp";
-import Mastin1 from "../../assets/mastin1.jpg";
-import Mastin2 from "../../assets/mastin2.jpg";
-import Mastin3 from "../../assets/mastin3.jpg";
-import Mastin4 from "../../assets/mastin4.webp";
-import Mastin5 from "../../assets/mastin5.jpg";
-import Heart from "../../assets/heart_icon.svg";
-import Users from "../../assets/users_icon.svg";
-import Message from "../../assets/message_icon.svg";
-import TwoHearts from "../../assets/two_hearts_icon.svg";
+import MartinElMastin from "/martinelmastin.webp";
+import Mastin1 from "/mastin1.jpg";
+import Mastin2 from "/mastin2.jpg";
+import Mastin3 from "/mastin3.jpg";
+import Mastin4 from "/mastin4.webp";
+import Mastin5 from "/mastin5.jpg";
+import Heart from "/heart_icon.svg";
+import Users from "/users_icon.svg";
+import Message from "/message_icon.svg";
+import TwoHearts from "/two_hearts_icon.svg";
 import { useGetUserData } from "../hooks/useGetUserData";
-import {
-  getUsersTopArtists,
-  getUsersTopTracks,
-} from "../application/repositories/getUsersData";
-import {
-  UserTopArtistsList,
-  UserTopTracksList,
-} from "../application/domain/userData";
+import { getUsersTopTracks } from "../application/repositories/getUsersData";
+import { UserTopTracksList } from "../application/domain/userData";
 import { useState } from "react";
 import { SmallCard } from "../components/SmallCard/SmallCard";
+import TopArtistsList from "./components/TopArtistsList/TopArtistsList";
 
 export default function ProfilePage() {
   const { userName, favoriteGenre } = useGetUserData();
-  const [topArtists, setTopArtists] = useState<UserTopArtistsList>([
-    { artistName: "" },
-  ]);
+
   const [topTracks, setTopTracks] = useState<UserTopTracksList>([
     { artistName: "", songName: "" },
   ]);
-
-  const onClickArtists = async () => {
-    const { topArtists: topArtistsList } = await getUsersTopArtists();
-
-    setTopArtists(topArtistsList);
-  };
 
   const onClickTracks = async () => {
     const { topTracks: topTracksList } = await getUsersTopTracks();
@@ -142,26 +129,8 @@ export default function ProfilePage() {
       <div className="col-start-2 row-start-3 border-2 rounded-lg p-5 mb-6">
         <h4 className="font-bold mb-2">Favorites</h4>
         <div className="grid grid-cols-2 gap-2">
-          <ol>
-            {topArtists.map((artist) => {
-              return (
-                <li
-                  className="mb-2"
-                  key={artist.artistName.replaceAll(" ", "")}
-                >
-                  <SmallCard
-                    name={artist.artistName}
-                    image={artist.artistPicture}
-                  />
-                </li>
-              );
-            })}
-            <li>
-              <button className="bg-red-200" onClick={onClickArtists}>
-                Reveal favs
-              </button>
-            </li>
-          </ol>
+          <TopArtistsList />
+
           <ol>
             {topTracks.map((track) => {
               return (

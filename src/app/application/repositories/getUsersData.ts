@@ -23,7 +23,7 @@ export async function getUsersTopArtists() {
 
   sessionStorage.setItem("topArtists", topArtists.toString());
 
-  return { topArtists };
+  return topArtists;
 }
 
 export async function getUsersTopTracks() {
