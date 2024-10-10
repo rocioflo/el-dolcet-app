@@ -14,20 +14,36 @@ import Users from "../../assets/users_icon.svg";
 import Message from "../../assets/message_icon.svg";
 import TwoHearts from "../../assets/two_hearts_icon.svg";
 import { useGetUserData } from "../hooks/useGetUserData";
-import { getUsersTopArtists } from "../application/repositories/getUsersData";
-import { UserTopArtistsList } from "../application/domain/userData";
+import {
+  getUsersTopArtists,
+  getUsersTopTracks,
+} from "../application/repositories/getUsersData";
+import {
+  UserTopArtistsList,
+  UserTopTracksList,
+} from "../application/domain/userData";
 import { useState } from "react";
+import { SmallCard } from "../components/SmallCard/SmallCard";
 
 export default function ProfilePage() {
-  const { userName, favoriteGenre, topTracks } = useGetUserData();
+  const { userName, favoriteGenre } = useGetUserData();
   const [topArtists, setTopArtists] = useState<UserTopArtistsList>([
     { artistName: "" },
+  ]);
+  const [topTracks, setTopTracks] = useState<UserTopTracksList>([
+    { artistName: "", songName: "" },
   ]);
 
   const onClickArtists = async () => {
     const { topArtists: topArtistsList } = await getUsersTopArtists();
 
     setTopArtists(topArtistsList);
+  };
+
+  const onClickTracks = async () => {
+    const { topTracks: topTracksList } = await getUsersTopTracks();
+
+    setTopTracks(topTracksList);
   };
 
   return (
@@ -133,7 +149,10 @@ export default function ProfilePage() {
                   className="mb-2"
                   key={artist.artistName.replaceAll(" ", "")}
                 >
-                  {artist.artistName}
+                  <SmallCard
+                    name={artist.artistName}
+                    image={artist.artistPicture}
+                  />
                 </li>
               );
             })}
@@ -144,13 +163,21 @@ export default function ProfilePage() {
             </li>
           </ol>
           <ol>
-            {topTracks.map((artist) => {
+            {topTracks.map((track) => {
               return (
-                <li className="mb-2" key={artist.replaceAll(" ", "")}>
-                  {artist}
+                <li className="mb-2" key={track.songName.replaceAll(" ", "")}>
+                  <SmallCard
+                    name={track.songName}
+                    image={track.artistPicture}
+                  />
                 </li>
               );
             })}
+            <li>
+              <button className="bg-red-200" onClick={onClickTracks}>
+                Reveal favs
+              </button>
+            </li>
           </ol>
         </div>
       </div>
