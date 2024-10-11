@@ -4,12 +4,7 @@ import Benita from "@/public/caruso.jpg";
 export const Matcher = () => {
   return (
     <div className="rounded-lg border-2 flex flex-col items-center h-full">
-      <Image
-        src={Benita}
-        alt="Your match!"
-        height={500}
-        className="object-contain"
-      />
+      <Image src={Benita} alt="Your match!" height={500} className="w-fit" />
 
       <div className="grid grid-cols-[2fr_1fr] gap-2 p-3">
         <div>

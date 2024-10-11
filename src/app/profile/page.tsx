@@ -10,12 +10,12 @@ import { UserFavorites } from "./components/UserFavorites/UserFavorites";
 
 export default function ProfilePage() {
   return (
-    <main className="grid grid-cols-[1fr_4fr_2fr] grid-rows-3 gap-6">
+    <main className="grid md:grid-cols-[1fr_4fr_2fr] grid-rows-2 gap-6 mr-10">
       <div>
         <ProfileMenu />
       </div>
 
-      <div className="rounded-xl border-2 grid grid-cols-[1fr_2fr] grid-rows-3 gap-3">
+      <div className="rounded-xl border-2 grid md:grid-cols-[1fr_2fr] grid-rows-3 gap-3">
         <UserInformation />
       </div>
       <div className="col-start-2 border-2 rounded-lg p-5 font-bold">
@@ -24,10 +24,10 @@ export default function ProfilePage() {
       <div className="col-start-2 row-start-3 border-2 rounded-lg p-5 mb-6">
         <UserFavorites />
       </div>
-      <div className="col-start-3 row-start-1 mr-10">
+      <div className="col-start-2 md:col-start-3 md:row-start-1">
         <Messages />
       </div>
-      <div className="col-start-3 row-start-2 mr-10">
+      <div className="col-start-2 md:col-start-3 md:row-start-2">
         <LikesAndMatches />
       </div>
     </main>

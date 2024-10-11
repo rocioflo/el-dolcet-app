@@ -5,17 +5,17 @@ import { ProfileMenu } from "./components/ProfileMenu/ProfileMenu";
 
 export default function UserHome() {
   return (
-    <main className="grid grid-rows-2 grid-cols-[1fr_4fr_2fr] gap-4 h-full">
+    <main className="grid md:grid-rows-2 md:grid-cols-[1fr_4fr_2fr] gap-4 h-full mr-10">
       <div className="row-span-2">
         <ProfileMenu />
       </div>
       <div className="row-span-2 h-full">
         <Matcher />
       </div>
-      <div className="mr-10">
+      <div className="col-start-2 md:col-start-3">
         <Messages />
       </div>
-      <div className="col-start-3 mr-10">
+      <div className="col-start-2 md:col-start-3">
         <LikesAndMatches />
       </div>
     </main>

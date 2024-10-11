@@ -10,7 +10,7 @@ export const UserPictures = () => {
   return (
     <>
       <h4 className="mb-2">Your pictures</h4>
-      <div className="flex gap-3 flex-wrap">
+      <div className="flex gap-3 flex-wrap justify-center items-center">
         <Image
           src={Mastin1}
           alt="Me heheee"
